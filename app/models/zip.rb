@@ -59,7 +59,7 @@ class Zip
     Rails.logger.debug {"getting all zips, prototype=#{prototype}, sort=#{sort}, offset=#{offset}, limit=#{limit}"}
 
     result=collection.find(prototype)
-          .projection({_id:true, city:true, state:true, pop:true})
+          .projection(loc: false)
           .sort(sort)
           .skip(offset)
     result=result.limit(limit) if !limit.nil?
