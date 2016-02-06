@@ -1,5 +1,7 @@
 class Zip
   include ActiveModel::Model
+  # you're allowing ruby objects to work with action pack. can use instance
+  # of zip with with helpers along with other helpers like conversions, translations, etc..
 
   attr_accessor :id, :city, :state, :population
 
@@ -20,6 +22,8 @@ class Zip
   def persisted?
     !@id.nil?
   end
+
+  # ActiveModel expects these methods so we must add them
   def created_at
     nil
   end
