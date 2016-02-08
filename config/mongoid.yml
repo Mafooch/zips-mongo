@@ -139,7 +139,7 @@ test:
 production:
   clients:
     default:
-      url: <%= ENV["MONGO_LAB_URL"] %>
+      url: <%= ENV["MONGO_LAB_URI"] %>
       hosts:
         - localhost:27017
       options:
