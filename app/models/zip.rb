@@ -1,7 +1,5 @@
 class Zip
   include ActiveModel::Model
-  # you're allowing ruby objects to work with action pack. can use instance
-  # of zip with with helpers along with other helpers like conversions, translations, etc..
 
   attr_accessor :id, :city, :state, :population
 
@@ -22,8 +20,6 @@ class Zip
   def persisted?
     !@id.nil?
   end
-
-  # ActiveModel expects these methods so we must add them
   def created_at
     nil
   end
@@ -63,7 +59,7 @@ class Zip
     Rails.logger.debug {"getting all zips, prototype=#{prototype}, sort=#{sort}, offset=#{offset}, limit=#{limit}"}
 
     result=collection.find(prototype)
-          .projection(loc: false)
+          .projection({_id:true, city:true, state:true, pop:true})
           .sort(sort)
           .skip(offset)
     result=result.limit(limit) if !limit.nil?
