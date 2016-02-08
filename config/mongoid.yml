@@ -138,8 +138,7 @@ test:
 
 production:
   clients:
+      default:
       uri: <%= ENV["MONGO_LAB_URI"] %>
-      hosts:
-        - localhost:27017
       options:
         connection_timeout: 15
